@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "GraphQL Backend for Cypher System data",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "build": "tsc",
     "test": "mocha"
   },
   "keywords": [

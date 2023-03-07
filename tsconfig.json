@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "module": "Node16",
+    "outDir": "build"
+  },
+  "include": [ "src/**/*" ]
+}
