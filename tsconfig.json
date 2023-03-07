@@ -2,7 +2,14 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "module": "Node16",
-    "outDir": "build"
+    "outDir": "build",
+    "rootDir": "src",
+    "lib": [ "es6" ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
-  "include": [ "src/**/*" ]
+  "include": [ "src/**/*" ],
+  "ts-node": {
+    "experimentalResolver": true
+  }
 }
