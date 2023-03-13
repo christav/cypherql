@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf ./build && tsc",
+    "lint": "eslint .",
     "test": "mocha",
     "test:watch": "mocha --watch",
     "start:dev": "nodemon"
@@ -20,7 +21,10 @@
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.14.6",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
     "chai": "^4.3.7",
+    "eslint": "^8.36.0",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.21",
     "rimraf": "^4.3.1",

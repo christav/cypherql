@@ -1,5 +1,4 @@
-import Fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify';
-import { Server, IncomingMessage, ServerResponse } from 'http';
+import Fastify from 'fastify';
 import pingPongRoutes from './routes/ping-pong';
 
 const server = Fastify({

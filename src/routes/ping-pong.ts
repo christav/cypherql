@@ -1,4 +1,4 @@
-import { FastifyInstance, RouteShorthandOptions, FastifyPluginCallback } from 'fastify';
+import { FastifyInstance, RouteShorthandOptions } from 'fastify';
 
 const pingPongOpts: RouteShorthandOptions = {
   schema: {
@@ -23,11 +23,11 @@ const pingPongOpts: RouteShorthandOptions = {
 };
 
 interface PingPongBody {
-  msg: String;
+  msg: string;
 }
 
 async function routes(fastify: FastifyInstance, options: RouteShorthandOptions, done: (err?: Error) => void) {
-  fastify.post('/ping', { ...pingPongOpts, ...options }, async (req, res) => {
+  fastify.post('/ping', { ...pingPongOpts, ...options }, async (req) => {
     const { msg } = req.body as PingPongBody;
     return { pong: `pong: ${msg}`};
   });
