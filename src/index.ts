@@ -1,26 +1,12 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from 'fastify';
 import { Server, IncomingMessage, ServerResponse } from 'http';
+import pingPongRoutes from './routes/ping-pong';
 
-const server = Fastify({});
-
-const opts: RouteShorthandOptions = {
-  schema: {
-    response: {
-      200: {
-        type: 'object',
-        properties: {
-          pong: {
-            type: 'string'
-          }
-        }
-      }
-    }
-  }
-}
-
-server.get('/ping', opts, async (req, reply) => {
-  return { pong: 'It works!' };
+const server = Fastify({
+  logger: true
 });
+
+server.register(pingPongRoutes);
 
 const start = async () => {
   try {
