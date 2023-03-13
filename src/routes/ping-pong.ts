@@ -22,9 +22,13 @@ const pingPongOpts: RouteShorthandOptions = {
   }
 };
 
+interface PingPongBody {
+  msg: String;
+}
+
 async function routes(fastify: FastifyInstance, options: RouteShorthandOptions, done: (err?: Error) => void) {
   fastify.post('/ping', { ...pingPongOpts, ...options }, async (req, res) => {
-    const { msg } = req.body as any;
+    const { msg } = req.body as PingPongBody;
     return { pong: `pong: ${msg}`};
   });
   done();
