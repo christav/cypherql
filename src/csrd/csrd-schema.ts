@@ -46,7 +46,94 @@ export interface Type {
   special_abilities: AbilityRef[];        // Abilities found at each tier
 }
 
+// A Cypher system Flavor
+export interface Flavor {
+  name: string;             // The name of the flavor
+  abilities: AbilityRef[];  // Abilities found at each tier
+}
+
+// Descriptor type
+export interface Descriptor {
+  name: string;                     // Name of the descriptor
+  description: string;              // The provided description
+  characteristics: BasicAbility[];  // Basic abilities such as skills and pool points
+  links: string[];                  // Starting adventure links
+}
+
+// Focus
+export interface Focus {
+  name: string;             // Name of the focus
+  description: string;      // the provided description
+  abilities: AbilityRef[];  // Abilities at each tier
+  intrusions: string;       // GM Intrusion suggestion
+}
+
+// Entry in a random table
+export interface RollEntry {
+  start: number;  // starting range inclusive
+  end: number;    // ending range inclusive
+  entry: string;  // name/description
+}
+
+export type CypherKind = 'MANIFEST' | 'SUBTLE' | 'FANTASTIC';
+
+// Cyphers
+export interface Cypher {
+  name: string;             // Name of the cypher
+  level_dice?: string;      // The dice used to determine the level
+  level_mod: number;        // The additional modification to the level
+  effect: string;           // The effect of the cypher
+  options: RollEntry[];     // A random roll table if applicable
+  kinds: CypherKind[];      // MANFEST, SUBTLE, FANTASTIC
+}
+
+// CypherTable for teh random roll tables for cyphers
+export interface CypherTable {
+  kind: CypherKind;     // MANIFEST, SUBTLE, FANTASTIC
+  options: RollEntry[]; // Range and name of cypher
+}
+
+// Artifact entry
+export interface Artifact {
+  name: string;         // Name of the Artifact
+  level_dice?: string;  // Dice used to determine level
+  level_mod: number;    // Additional mondifications to the level
+  form: string;         // The form of the artifact
+  depletion: string;    // The depletion range
+  effect: string;       // The description
+}
+
+export type CreatureKind = 'Creature' | 'NPC' | 'Super Villian';
+
+// Creatures
+export interface Creature {
+  name: string;             // The name of the creature
+  kind: CreatureKind;       // Creature, NPS, or Super Villian
+  level: number;            // Level 1-10
+  description: string;      // provided description
+  motive: string;           // provided motive
+  environment?: string;     // environment if any
+  health: number;           // health
+  damage: string;           // damage dealt
+  armor: number;            // armor, 0 if none
+  movement: string;         // movement speed
+  modifications: string[];  // list of modifications
+  combat?: string;          // combat options
+  interactions: string;     // interactions
+  uses?: string;            // use if any
+  loot?: string;            // loot if any
+  intrusions?: string;      // GM intrusions if any
+}
+
 // The top level database
 export interface CsrdDb {
   types: Type[];
+  flavors: Flavor[];
+  descriptors: Descriptor[];
+  foci: Focus[];
+  abilities: Ability[];
+  cyphers: Cypher[];
+  cypher_tables: CypherTable[];
+  artifacts: Artifact[];
+  creatures: Creature[];
 }
