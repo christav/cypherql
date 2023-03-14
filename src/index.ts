@@ -1,8 +1,8 @@
 import Fastify, { FastifyInstance } from 'fastify';
 import { ApolloServer } from '@apollo/server';
 import fastifyApollo, { fastifyApolloDrainPlugin } from '@as-integrations/fastify';
-import pingPongRoutes from './routes/ping-pong.js';
-import { typeDefs, resolvers } from './books/index.js';
+import pingPongRoutes from './routes/ping-pong';
+import { typeDefs, resolvers } from './schema';
 
 async function createServer() {
   const server = Fastify({
