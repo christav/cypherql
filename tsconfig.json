@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "module": "Node16",
+    "module": "CommonJS",
+    "moduleResolution": "node",
     "outDir": "build",
     "rootDir": ".",
-    "lib": [ "es6" ],
+    "lib": [ "ES2022" ],
+    "target": "ES2022",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "sourceMap": true

@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "GraphQL Backend for Cypher System data",
   "main": "build/src/index.js",
-  "type": "module",
   "scripts": {
     "build": "rimraf ./build && tsc",
     "lint": "eslint .",
