@@ -25,9 +25,8 @@ type Category {
 }
 
 type Query {
-  abilities: [Ability!]!
-#  ability(id: ID!): Ability
-#  abilities(ofType: AbilityType, ids: [ID]): [Ability!]!
+  ability(id: ID!): Ability
+  abilities(ofType: AbilityType, ids: [ID]): [Ability!]!
 #  categories: [Category!]!
 }
 
