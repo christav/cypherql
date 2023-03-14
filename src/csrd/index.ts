@@ -1,4 +1,4 @@
-import * as schema from './csrd-schema';
+import * as schema from './csrd-schema.js';
 import rawDb from '../Cypher-System-JSON-DB/CSRD.json';
 
 const db = rawDb as schema.CsrdDb;

@@ -3,10 +3,11 @@
     "alwaysStrict": true,
     "module": "Node16",
     "outDir": "build",
-    "rootDir": "src",
+    "rootDir": ".",
     "lib": [ "es6" ],
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "sourceMap": true
   },
   "include": ["src/**/*", "tests/**/*"],
   "ts-node": {

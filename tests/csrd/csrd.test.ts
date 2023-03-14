@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { readTypes } from '../../src/csrd';
+import { readTypes } from '../../src/csrd/index.js';
 
 describe('csrd file access', () => {
   it('should return types when read', () => {
