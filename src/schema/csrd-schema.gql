@@ -1,0 +1,42 @@
+# Schema for the CSRD
+# Taken from @fva on the Cypher Unlimited Discord
+
+type Ability {
+  id: ID!
+  title: String!
+  description: String!
+  cost: AbilityCost
+  actionDescription: String
+  type: AbilityType!
+}
+
+type AbilityCost {
+  stat: Stat!
+  value: Int!
+  startFrom: Boolean!
+}
+
+type Category {
+  id: ID!
+  name: String!
+  low: [Ability]!
+  mid: [Ability]!
+  high: [Ability]!
+}
+
+type Query {
+  ability(id: ID!): Ability
+  abilities(ofType: AbilityType, ids: [ID]): [Ability!]!
+  categories: [Category!]!
+}
+
+enum Stat {
+  Might
+  Speed
+  Intellect
+}
+
+enum AbilityType {
+  Enabler
+  Action
+}

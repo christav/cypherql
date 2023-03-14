@@ -1,45 +1,6 @@
 // GraphQL schema as defined by @fva on the Cypher unlimited discord
+import { readFileSync } from 'fs';
+import path from 'path';
 
-export const typeDefs = `#graphql
-type Ability {
-  id: ID!
-  title: String!
-  description: String!
-  cost: AbilityCost
-  actionDescription: String
-  type: AbilityType!
-}
-
-type AbilityCost {
-  stat: Stat!
-  value: Int!
-  startFrom: Boolean!
-}
-
-type Category {
-  id: ID!
-  name: String!
-  low: [Ability]!
-  mid: [Ability]!
-  high: [Ability]!
-}
-
-type Query {
-  ability(id: ID!): Ability
-  abilities(ofType: AbilityType, ids: [ID]): [Ability!]!
-  categories: [Category!]!
-}
-
-enum Stat {
-  Might
-  Speed
-  Intellect
-}
-
-enum AbilityType {
-  Enabler
-  Action
-}
-`;
-
+export const typeDefs = readFileSync(path.join(__dirname, 'csrd-schema.gql'), { encoding: 'utf8' });
 export { resolvers } from './resolvers';
