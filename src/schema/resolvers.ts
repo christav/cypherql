@@ -17,13 +17,13 @@ function abilityCostFromAbility(ability: Ability) {
 const abilityIsEnabler = (ability: Ability): boolean =>
   ability.description.endsWith('Enabler.');
 
-const jsonToGraphqlAbiilty = (ability: Ability): any => ({
+const jsonToGraphqlAbiilty = (ability: Ability) => ({
   id: ability.name,
-    title: ability.name,
-    description: ability.description,
-    cost: abilityCostFromAbility(ability),
-    actionDescription: ability.description,
-    type: abilityIsEnabler(ability) ? 'Enabler' : 'Action'
+  title: ability.name,
+  description: ability.description,
+  cost: abilityCostFromAbility(ability),
+  actionDescription: ability.description,
+  type: abilityIsEnabler(ability) ? 'Enabler' : 'Action'
 });
 
 function ability(parent, args) {
