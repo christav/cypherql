@@ -1,6 +1,7 @@
 import R from 'ramda';
 
 import { getAbilities, Ability } from '../csrd';
+import { JsonCategories, JsonCategory } from './categories';
 
 function abilityCostFromAbility(ability: Ability) {
   if (!ability.pool || ability.pool.length === 0) {
@@ -58,9 +59,24 @@ function abilities(parent, args) {
   return R.map(jsonToGraphqlAbiilty, foundAbilities);
 }
 
+function categories() {
+  const categoriesList = new JsonCategories(getAbilities());
+  const jsonCategories = categoriesList.entries();
+
+  return R.map((cat: JsonCategory) => ({
+    id: cat.name,
+    low: R.map(jsonToGraphqlAbiilty, cat.low),
+    mid: R.map(jsonToGraphqlAbiilty, cat.mid),
+    high: R.map(jsonToGraphqlAbiilty, cat.high)
+  }), jsonCategories);
+}
+
+// Representation of an entry for a category
+
 export const resolvers = {
   Query: {
     ability,
-    abilities
+    abilities,
+    categories
   }
 };

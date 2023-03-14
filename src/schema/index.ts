@@ -27,7 +27,7 @@ type Category {
 type Query {
   ability(id: ID!): Ability
   abilities(ofType: AbilityType, ids: [ID]): [Ability!]!
-#  categories: [Category!]!
+  categories: [Category!]!
 }
 
 enum Stat {
